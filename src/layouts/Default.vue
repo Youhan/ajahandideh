@@ -1,85 +1,56 @@
 <template>
-  <div id="app">
-
-    <header class="header">
-      <div class="header__left">
-        <Logo v-if="showLogo" /> 
+  <div id="app" class="mb-12 md:mb-20">
+    <div
+      class="text-gray-800 fixed top-0 left-0 mt-32 ml-32 hidden lg:block w-full"
+      v-rellax="{ speed: 4 }"
+    >
+      <div class="transform origin-top-left rotate-90 translate-x-64">
+        <p class="text-huge font-display">Make it simple!</p>
+        <p class="text-2xl font-display">the simpler, the better</p>
       </div>
-      
-      <div class="header__right">        
-        <ToggleTheme />
+    </div>
+    <div class="grid lg:grid-cols-3">
+      <div></div>
+      <div>
+        <slot name="header">
+          <header class="m-auto md:max-w-lg md:py-20">
+            <div class="mb-8">
+              <h1 class="text-4xl font-display text-white mb-4">
+                Hello, I'm Alireza
+              </h1>
+              <div>
+                <p>
+                  I am a web designer and developer from Iran, living in the
+                  lovely Winnipeg, Canada. I work as a senior frontend developer
+                  at The Dufresne Group. My strengh lies in logical thinking and
+                  attention to details.
+                </p>
+              </div>
+            </div>
+          </header>
+        </slot>
+        <main class="">
+          <slot />
+        </main>
       </div>
-    </header>
-
-    <main class="main">
-      <slot/>
-    </main>
-
-    <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}. </span>
-      <span class="footer__links">Powered by <a href="//gridsome.org"> Gridsome </a></span>
-    </footer>
-
+    </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import ToggleTheme from '~/components/ToggleTheme.vue'
-
+import Logo from "~/components/Logo.vue";
+import ToggleTheme from "~/components/ToggleTheme.vue";
+import { Noise } from "~/utils/Noise";
 export default {
   props: {
-    showLogo: { default: true }
+    showLogo: { default: true },
   },
   components: {
     Logo,
-    ToggleTheme
-  }
-}
+    ToggleTheme,
+  },
+  mounted() {
+    new Noise();
+  },
+};
 </script>
-
-<style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
-  top:0;
-  z-index: 10;
-
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
-  }
-
-  @media screen and (min-width: 1300px) {
-    //Make header sticky for large screens
-    position: sticky;
-    width: 100%;
-  }
-}
-
-.main {
-  margin: 0 auto;
-  padding: 1.5vw 15px 0;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--space) / 2);
-  text-align: center;
-  font-size: .8em;
-
-  > span {
-    margin: 0 .35em;
-  }
-
-  a {
-    color: currentColor;
-  }
-}
-</style>

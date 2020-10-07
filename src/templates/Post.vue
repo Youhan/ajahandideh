@@ -1,57 +1,84 @@
 <template>
   <Layout>
-    <div class="post-title">
-      <h1 class="post-title__text">
-        {{ $page.post.title }}
-      </h1>
+    <div slot="header"></div>
 
-      <PostMeta :post="$page.post" />
-
-    </div>
-
-    <div class="post content-box">
-      <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
+    <div class="mb-8 mt-8 lg:mt-12">
+      <div class="relative flex items-center">
+        <a
+          @click="hasHistory() ? $router.go(-1) : $router.push('/')"
+          class="absolute top-1/2 left-0 -ml-8 transform -translate-x-full
+          -translate-y-1/2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 8 8 12 12 16"></polyline>
+            <line x1="16" y1="12" x2="8" y2="12"></line>
+          </svg>
+        </a>
+        <h1 class="font-display text-4xl text-white">
+          {{ $page.post.title }}
+        </h1>
       </div>
 
-      <div class="post__content" v-html="$page.post.content" />
+      <PostMeta :post="$page.post" />
+    </div>
 
-      <div class="post__footer">
+    <div class="prose lg:prose-md m-auto">
+      <div class="" v-html="$page.post.content" />
+
+      <div class="">
         <PostTags :post="$page.post" />
       </div>
     </div>
 
-    <div class="post-comments">
+    <div class="post-comments mt-12">
       <!-- Add comment widgets here -->
+      <Disqus shortname="ajahandideh" />
     </div>
 
-    <Author class="post-author" />
+    <!-- <Author class="post-author" /> -->
   </Layout>
 </template>
 
 <script>
-import PostMeta from '~/components/PostMeta'
-import PostTags from '~/components/PostTags'
-import Author from '~/components/Author.vue'
+import PostMeta from "~/components/PostMeta";
+import PostTags from "~/components/PostTags";
+import Author from "~/components/Author.vue";
+import { Disqus } from "vue-disqus";
 
 export default {
   components: {
     Author,
     PostMeta,
-    PostTags
+    PostTags,
+    Disqus,
   },
-  metaInfo () {
+  metaInfo() {
     return {
       title: this.$page.post.title,
       meta: [
         {
-          name: 'description',
-          content: this.$page.post.description
-        }
-      ]
-    }
-  }
-}
+          name: "description",
+          content: this.$page.post.description,
+        },
+      ],
+    };
+  },
+  methods: {
+    hasHistory() {
+      return window.history.length > 2;
+    },
+  },
+};
 </script>
 
 <page-query>
@@ -72,60 +99,3 @@ query Post ($id: ID!) {
   }
 }
 </page-query>
-
-<style lang="scss">
-.post-title {
-  padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
-  text-align: center;
-}
-
-.post {
-
-  &__header {
-    width: calc(100% + var(--space) * 2);
-    margin-left: calc(var(--space) * -1);
-    margin-top: calc(var(--space) * -1);
-    margin-bottom: calc(var(--space) / 2);
-    overflow: hidden;
-    border-radius: var(--radius) var(--radius) 0 0;
-
-    img {
-      width: 100%;
-    }
-
-    &:empty {
-      display: none;
-    }
-  }
-
-  &__content {
-    h2:first-child {
-      margin-top: 0;
-    }
-
-    p:first-of-type {
-      font-size: 1.2em;
-      color: var(--title-color);
-    }
-
-    img {
-      width: calc(100% + var(--space) * 2);
-      margin-left: calc(var(--space) * -1);
-      display: block;
-      max-width: none;
-    }
-  }
-}
-
-.post-comments {
-  padding: calc(var(--space) / 2);
-
-  &:empty {
-    display: none;
-  }
-}
-
-.post-author {
-  margin-top: calc(var(--space) / 2);
-}
-</style>

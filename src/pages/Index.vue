@@ -1,13 +1,15 @@
 <template>
-  <Layout :show-logo="false">
-    <!-- Author intro -->
-    <Author :show-title="true" />
-
+  <Layout>
+    <div class="border-b border-gray-800 mb-4"></div>
+    <p class="font-display text-white mb-4">My recent updates:</p>
     <!-- List posts -->
-    <div class="posts">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+    <div class="grid gap-4">
+      <PostCard
+        v-for="edge in $page.posts.edges"
+        :key="edge.node.id"
+        :post="edge.node"
+      />
     </div>
-
   </Layout>
 </template>
 
@@ -35,16 +37,16 @@ query {
 </page-query>
 
 <script>
-import Author from '~/components/Author.vue'
-import PostCard from '~/components/PostCard.vue'
+import Author from "~/components/Author.vue";
+import PostCard from "~/components/PostCard.vue";
 
 export default {
   components: {
     Author,
-    PostCard
+    PostCard,
   },
   metaInfo: {
-    title: 'Hello, world!'
-  }
-}
+    title: "Hello, world!",
+  },
+};
 </script>

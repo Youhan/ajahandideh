@@ -3,6 +3,7 @@
 
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const tailwindcss = require("tailwindcss")
 
 module.exports = {
   siteName: 'Gridsome Blog Starter',
@@ -41,5 +42,15 @@ module.exports = {
         '@gridsome/remark-prismjs'
       ]
     }
+  },
+
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          tailwindcss
+        ],
+      },
+    },
   }
 }

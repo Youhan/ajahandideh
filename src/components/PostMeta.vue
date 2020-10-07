@@ -1,21 +1,14 @@
 <template>
-   <div class="post-meta">
-      Posted {{ post.date }}.
-      <template v-if="post.timeToRead">
-        <strong>{{ post.timeToRead }} min read.</strong>
-      </template>
-    </div>
+  <div class="text-xs flex space-x-4">
+    <span>{{ post.date }}.</span>
+    <template v-if="post.timeToRead">
+      <span>{{ post.timeToRead }} min read.</span>
+    </template>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ['post']
-}
+  props: ["post"],
+};
 </script>
-
-<style lang="scss">
-.post-meta {
-  font-size: .8em;
-  opacity: .8;
-}
-</style>
