@@ -6,7 +6,7 @@
       <div class="relative flex items-center">
         <a
           @click="hasHistory() ? $router.go(-1) : $router.push('/')"
-          class="absolute top-1/2 left-0 -ml-8 transform -translate-x-full
+          class="block absolute top-1/2 left-0 -ml-8 transform -translate-x-full
           -translate-y-1/2"
         >
           <svg
