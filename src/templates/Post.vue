@@ -105,7 +105,10 @@ query Post ($id: ID!) {
 }
 </page-query>
 
-<style lang="css">
+<style lang="css" scoped>
+.prose {
+    max-width: 73ch;
+}
 code[class*="language-"], pre[class*="language-"]{
   font-size: .9rem;
 }
