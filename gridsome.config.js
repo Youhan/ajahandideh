@@ -9,6 +9,8 @@ module.exports = {
   siteName: "Alireza Jahandideh",
   siteDescription:
     "Personal website of Alireza Jahandideh! Web designer and developer.",
+
+  icon: "./src/favicon.png",
   templates: {
     Post: "/:title",
     Tag: "/tag/:id",

@@ -109,7 +109,14 @@ query Post ($id: ID!) {
 .prose {
     max-width: 73ch;
 }
-code[class*="language-"], pre[class*="language-"]{
+.prose code[class*="language-"], .prose pre[class*="language-"]{
   font-size: .9rem;
+}
+</style>
+
+<style lang="css">
+
+.prose code[class*="language-"], .prose pre[class*="language-"]{
+  font-size: 0.8em;
 }
 </style>
