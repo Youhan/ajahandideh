@@ -3,11 +3,11 @@
     <div slot="header"></div>
 
     <div class="mb-8 mt-8 lg:mt-12">
-      <div class="relative flex items-center">
+      <div class="">
         <a
+          href="#"
           @click="hasHistory() ? $router.go(-1) : $router.push('/')"
-          class="block absolute top-1/2 left-0 -ml-8 transform -translate-x-full
-          -translate-y-1/2"
+          class="block mb-8 hover:text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@
       <PostMeta :post="$page.post" />
     </div>
 
-    <div class="prose lg:prose-md m-auto">
+    <div class="prose lg:prose-lg m-auto">
       <div class="" v-html="$page.post.content" />
 
       <div class="">
@@ -54,6 +54,9 @@ import PostMeta from "~/components/PostMeta";
 import PostTags from "~/components/PostTags";
 import Author from "~/components/Author.vue";
 import { Disqus } from "vue-disqus";
+import Prism from "prismjs";
+import "prismjs/themes/prism-okaidia.css";
+import "prismjs/components/prism-javascript";
 
 export default {
   components: {
@@ -72,6 +75,9 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    Prism.highlightAll();
   },
   methods: {
     hasHistory() {
@@ -95,7 +101,12 @@ query Post ($id: ID!) {
     }
     description
     content
-    cover_image (width: 860, blur: 10)
   }
 }
 </page-query>
+
+<style lang="css">
+code[class*="language-"], pre[class*="language-"]{
+  font-size: .9rem;
+}
+</style>
