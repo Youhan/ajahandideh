@@ -5,9 +5,9 @@
   >
     <PostMeta class="mb-3 mt-5" :post="post" />
 
-    <h2 class="text-lg text-gray-100" v-html="post.title" />
+    <h2 class="text-lg font-semibold text-gray-100" v-html="post.title" />
 
-    <!-- <PostTags class="" :post="post" /> -->
+    <PostTags class="mt-4" :post="post" />
   </g-link>
 </template>
 

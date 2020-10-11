@@ -49,7 +49,7 @@ module.exports = {
     typography: (theme) => ({
       default: {
         css: {
-          color: theme("colors.gray.400"),
+          color: theme("colors.gray.300"),
           a: {
             color: theme("colors.orange.300"),
             "&:hover": {
@@ -62,20 +62,24 @@ module.exports = {
             fontWeight: "500",
           },
           h1: {
-            color: theme("colors.gray.300"),
+            color: theme("colors.gray.100"),
             fontWeight: "500",
+            fontFamily: "Lora, serif",
           },
           h2: {
-            color: theme("colors.gray.300"),
+            color: theme("colors.gray.100"),
             fontWeight: "500",
+            fontFamily: "Lora, serif",
           },
           h3: {
-            color: theme("colors.gray.300"),
+            color: theme("colors.gray.100"),
             fontWeight: "500",
+            fontFamily: "Lora, serif",
           },
           h4: {
-            color: theme("colors.gray.300"),
+            color: theme("colors.gray.100"),
             fontWeight: "500",
+            fontFamily: "Lora, serif",
           },
           blockquote: {
             color: theme("colors.gray.500"),

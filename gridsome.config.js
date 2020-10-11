@@ -32,6 +32,27 @@ module.exports = {
         },
       },
     },
+    {
+      use: "gridsome-plugin-rss",
+      options: {
+        contentTypeName: "Post",
+        feedOptions: {
+          title: "Alireza Jahandideh Blog",
+          feed_url: "https://ajahandideh.com/rss.xml",
+          site_url: "https://ajahandideh.com",
+        },
+        feedItemOptions: (node) => ({
+          title: node.title,
+          description: node.description,
+          url: "https://ajahandideh.com/post/" + node.slug,
+          author: "Alireza Jahandideh",
+        }),
+        output: {
+          dir: "./static",
+          name: "rss.xml",
+        },
+      },
+    },
   ],
 
   transformers: {

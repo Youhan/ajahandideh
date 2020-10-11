@@ -2,7 +2,7 @@
   <Layout>
     <div slot="header"></div>
 
-    <div class="mb-8 mt-8 lg:mt-12">
+    <div class="mb-8 mt-8 lg:mt-12 lg:mb-12">
       <div class="">
         <a
           href="#"
@@ -32,7 +32,7 @@
       <PostMeta :post="$page.post" />
     </div>
 
-    <div class="prose lg:prose-lg m-auto">
+    <div class="prose lg:prose-lg lg:mt-8 m-auto">
       <div class="" v-html="$page.post.content" />
 
       <div class="">
