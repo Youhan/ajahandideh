@@ -53,6 +53,12 @@ module.exports = {
         },
       },
     },
+    {
+      use: "@gridsome/plugin-google-analytics",
+      options: {
+        id: "UA-180283888-1",
+      },
+    },
   ],
 
   transformers: {
