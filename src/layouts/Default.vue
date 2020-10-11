@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="mb-12 md:mb-20">
-    <div class="relative z-20 grid lg:grid-cols-4">
+    <div class="relative z-20 grid grid-cols-1 lg:grid-cols-4">
       <div></div>
       <div class="lg:col-span-2">
         <slot name="header">

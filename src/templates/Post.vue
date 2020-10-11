@@ -24,7 +24,7 @@
             <line x1="16" y1="12" x2="8" y2="12"></line>
           </svg>
         </a>
-        <h1 class="font-display text-4xl text-white">
+        <h1 class="font-display text-2xl lg:text-4xl text-white">
           {{ $page.post.title }}
         </h1>
       </div>

@@ -7,7 +7,7 @@
 
     <h2 class="text-lg font-semibold text-gray-100" v-html="post.title" />
 
-    <PostTags class="mt-4" :post="post" />
+    <!-- <PostTags class="mt-4" :post="post" /> -->
   </g-link>
 </template>
 
