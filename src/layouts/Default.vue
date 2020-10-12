@@ -6,17 +6,7 @@
         <slot name="header">
           <header class="m-auto md:max-w-lg md:py-20">
             <div class="mb-8">
-              <h1 class="text-4xl font-display text-white mb-4">
-                Hello, I'm Alireza
-              </h1>
-              <div>
-                <p>
-                  I am a web designer and developer from Iran, living in the
-                  lovely Winnipeg, Canada. I work as a senior frontend developer
-                  at The Dufresne Group. My strengh lies in logical thinking and
-                  attention to details.
-                </p>
-              </div>
+              <AboutMe />
             </div>
           </header>
         </slot>
@@ -39,16 +29,14 @@
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import ToggleTheme from "~/components/ToggleTheme.vue";
+import AboutMe from "~/components/AboutMe";
 import { Noise } from "~/utils/Noise";
 export default {
   props: {
     showLogo: { default: true },
   },
   components: {
-    Logo,
-    ToggleTheme,
+    AboutMe,
   },
   mounted() {
     new Noise();
